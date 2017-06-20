@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Some Useful Government Service</title>
+        <link rel="stylesheet" href="dist/angular-material.min.css">
+        <link rel="stylesheet" href="dist/app.css">
+        <script src="dist/app.js"></script>
+    </head>
+    <body ng-app="GovApp" ng-cloak layout-padding ng-controller="AppCtrl">
+        <div ng-show="!applied">
+            <div><h1>Some Useful Government Service</h1></div>
+            <form name="userForm">
+                <div layout="row" layout-wrap>
+                    <div flex="20">
+                        <label>Name</label>
+                    </div>
+                    <div flex>
+                        <md-input-container>
+                            <input name="name" ng-model="name" required>
+                            <div ng-messages="userForm.name.$error" ng-show="userForm.name.$touched || formSent">
+                                <div ng-message="required">Your name is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="row" layout-wrap>
+                    <div flex="20">
+                        <label>Sex</label>
+                    </div>
+                    <div flex>
+                        <md-radio-group name="sex" ng-model="sex" ng-init="sex='male'" layout="row">
+                            <md-radio-button value="male" aria-label="Male">
+                                Male
+                            </md-radio-button>
+                            <md-radio-button value="female" aria-label="Female">
+                                Female
+                            </md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div layout="row" layout-wrap>
+                    <div flex="20">
+                        <label>Age</label>
+                    </div>
+                    <div flex>
+                        <md-input-container>
+                            <input type="number" name="age" ng-model="age" required >
+                            <div ng-messages="userForm.age.$error" ng-show="userForm.age.$touched || formSent">
+                                <div ng-message="required">Your age is required.</div>
+                                <div ng-message="number">Your age must be a number.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="row" ngCtrl="Countries" layout-wrap>
+                    <div flex="20">
+                        <label>Country</label>
+                    </div>
+                    <div flex>
+                        <md-input-container>
+                            <md-select name="country" ng-model="country" placeholder="Select a Country" required>
+                                <md-option ng-value="c.alpha2Code" ng-repeat="c in countries">{{ c.name }}</md-option>
+                            </md-select>
+                            <div ng-messages="userForm.country.$error" ng-show="userForm.country.$touched || formSent">
+                                <div ng-message="required">Your Country is required.</div>
+                            </div>
+                            <div class="error" ng-show="countryError">
+                                There has been an error loading Countries, please reload the page.
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div>
+                        <md-button class="md-raised" ng-click="submit()"> Apply </md-button>
+                    </div>
+                    <div class="error" ng-show="formSent && !userForm.$valid">
+                        Please fill all the fields.
+                    </div>
+                    <div class="error" ng-show="serverError">
+                        There has been an error sending your data, please try again.
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div ng-show="applied">
+            <div><h1>Application Complete</h1></div>
+            <div>
+                {{name}} thank you for applying to this useful government service.
+            </div>
+        </div>
+    </body>
+</html>
