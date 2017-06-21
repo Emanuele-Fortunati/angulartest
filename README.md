@@ -5,6 +5,7 @@ Angular Test for Useful Government Service
 The solution use Angular.js + Angular Material for the frontend and Node.js + Express.js + Mongodb for the backend
 
 # How to run the app
+npm install
 mongod --dbpath=data
 npm run dev
 
