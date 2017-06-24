@@ -5,6 +5,7 @@
     "angular-aria": "^1.6.4",
     "angular-material": "^1.1.4",
     "angular-messages": "^1.6.4",
+    "uirouter/angularjs": "^1.0.3",
     "body-parser": "^1.17.2",
     "browserify": "^14.4.0",
     "cpx": "^1.5.0",
@@ -13,7 +14,7 @@
     "opener": "^1.4.3"
   },
   "scripts": {
-    "predev": "browserify --entry frontend/index.js --outfile frontend/dist/app.js & cpx node_modules/angular-material/angular-material.min.css frontend/dist & cpx frontend/app.css frontend/dist",
+    "predev": "browserify --entry frontend/index.js --outfile frontend/dist/app.js & cpx node_modules/angular-material/angular-material.min.css frontend/dist & cpx frontend/index.html frontend/dist & cpx frontend/app.css frontend/dist & cpx frontend/views/userdata.html frontend/dist/views & cpx frontend/views/userdata-complete.html frontend/dist/views & cpx frontend/components/ga-userdata/component.html frontend/dist/components/ga-userdata & cpx frontend/components/ga-userdata/component.css frontend/dist/components/ga-userdata & cpx frontend/components/ga-countries/component.html frontend/dist/components/ga-countries & cpx frontend/components/ga-countries/component.css frontend/dist/components/ga-countries",
     "dev": "node backend/index.js & opener http://localhost:8080/"
   }
 }

@@ -13,7 +13,8 @@ MongoClient.connect(url, function(err, connectedDB) {
     db = connectedDB;
 });
 
-app.use(express.static(path.join(__dirname, '../frontend')))
+app.use(express.static(path.join(__dirname, '../frontend/dist')))
+app.use(express.static(path.join(__dirname, '../frontend/dist/components')))
 app.use(bodyParser.json())
 
 

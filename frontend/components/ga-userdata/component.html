@@ -1,0 +1,68 @@
+<form name="userForm">
+    <div layout="row" layout-wrap>
+        <div flex="20">
+            <label>Name</label>
+        </div>
+        <div flex>
+            <md-input-container>
+                <input name="name" ng-model="$ctrl.name" required>
+                <div ng-messages="userForm.name.$error" ng-show="userForm.name.$touched || $ctrl.formSent">
+                    <div ng-message="required">Your name is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+    </div>
+    <div layout="row" layout-wrap>
+        <div flex="20">
+            <label>Sex</label>
+        </div>
+        <div flex>
+            <md-radio-group name="sex" ng-model="$ctrl.sex" layout="row">
+                <md-radio-button value="male" aria-label="Male">
+                    Male
+                </md-radio-button>
+                <md-radio-button value="female" aria-label="Female">
+                    Female
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+    </div>
+    <div layout="row" layout-wrap>
+        <div flex="20">
+            <label>Age</label>
+        </div>
+        <div flex>
+            <md-input-container>
+                <input type="number" name="age" ng-model="$ctrl.age" required>
+                <div ng-messages="userForm.age.$error" ng-show="userForm.age.$touched || $ctrl.formSent">
+                    <div ng-message="required">Your age is required.</div>
+                    <div ng-message="number">Your age must be a number.</div>
+                </div>
+            </md-input-container>
+        </div>
+    </div>
+    <div layout="row" ngCtrl="Countries" layout-wrap>
+        <div flex="20">
+            <label>Country</label>
+        </div>
+        <div flex>
+            <md-input-container>
+                <ga-country-select model="$ctrl.country" name="country" required="required"></ga-country-select>
+                <div ng-messages="userForm.country.$error" ng-show="userForm.country.$touched || $ctrl.formSent">
+                    <div ng-message="required">Your Country is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+    </div>
+    <div layout="row">
+        <div>
+            <md-button class="md-raised" ng-click="$ctrl.submit(userForm)"> Apply </md-button>
+        </div>
+        <div class="error" ng-show="$ctrl.formSent && !userForm.$valid">
+            Please fill all the fields.
+        </div>
+        <div class="error" ng-show="$ctrl.serverError">
+            There has been an error sending your data, please try again.
+        </div>
+    </div>
+</form>

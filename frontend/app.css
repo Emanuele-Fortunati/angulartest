@@ -1,18 +1,2 @@
-md-input-container {
-    margin-top: -15px;
-}
-
-md-radio-group {
-    margin-bottom: 35px;
-}
-
-.md-button {
-    margin-left: -3px;
-    margin-top: 20px;
-}
-
-.error {
-    margin-top: 28px;
-    margin-left: 20px;
-    color: #f00;
-}
+@import url('angular-material.min.css');
+@import url('components/ga-userdata/component.css');

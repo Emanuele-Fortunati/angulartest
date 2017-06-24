@@ -1,0 +1,6 @@
+<md-select name="{{$ctrl.name}}" ng-model="$ctrl.model" placeholder="Select a Country" required="{{$ctrl.required}}">
+    <md-option ng-value="c.alpha2Code" ng-repeat="c in $ctrl.countries">{{ c.name }}</md-option>
+</md-select>
+<div class="error" ng-show="$ctrl.countryError">
+    There has been an error loading Countries, please reload the page.
+</div>
