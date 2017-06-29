@@ -16,4 +16,4 @@ Unfortunately, I didn't have enough time to write the tests. I would have done t
 - Validating data backend too
 - Avoiding duplicated data (backend)
 - Watchers in npm so both frontend and backend code can auto reload (faster development)
-- Improved use of the nmp builder (the folder 'dist' would need to be created runtime)
+- Improved use of the npm builder (the folder 'dist' would need to be created runtime)
